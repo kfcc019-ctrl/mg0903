@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MG 상생 희망드림 대출 - 지역 밀착형 상생 금융 인포그래픽</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mg: {
+                            navy: '#002855',
+                            blue: '#004b9e',
+                            sky: '#0072ce',
+                            accent: '#ffb81c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
@@ -29,26 +43,8 @@
         }
     </style>
 </head>
-<!-- Palette: Energetic Teal & Royal Blue (High-Contrast Vibrant) -->
-<!-- 
-Plan:
-1. Hero Banner & Key Metrics: Highlight core value proposition and 4 big stats (Max Limit, Interest Rate Discount, Guarantee Ratio, Term).
-2. Background & Target Audience: Introduce economic context, target criteria (Traditional Market, Local Currency Stores, 80% lower credit score).
-3. Interest Rate Structure (Chart 1): Doughnut chart visualizing the maximum 2.0%p discount options (Inclusive, Business, Digital).
-4. Product Features & Flexible Repayment: Interactive tab/card display of customized daily/weekly repayments and zero early termination fee.
-5. Risk Management Framework: Flow diagram using structured Tailwind HTML/CSS cards for EWS (Early Warning System) and 90-100% guarantee link.
-6. Expected Outcomes & Impact (Chart 2): Bar chart visualizing deposit growth, MAU boost, and reserve coverage.
--->
-<!-- 
-Visualizations Justification:
-1. Donut Chart (Chart.js / Canvas): Interest Rate Discount Allocation (1.0%p, 0.6%p, 0.4%p). Reason: Inform & Compare maximum 2.0%p discount breakdown. NO SVG.
-2. Bar Chart (Chart.js / Canvas): Expected Strategic Impact Metrics. Reason: Compare key performance indicators (Deposits, MAU, Coverage). NO SVG.
-3. Process Flow Diagram (Structured HTML/CSS Cards): Early Warning & Workout Process. Reason: Organize risk monitoring logic without Mermaid JS or SVG.
--->
-<!-- Confirmation: NEITHER Mermaid JS NOR SVG graphics were used anywhere in this document. -->
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Sticky Navigation Bar -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -73,15 +69,24 @@ Visualizations Justification:
         </div>
     </nav>
 
-    <!-- Main Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
 
-        <!-- Header / Hero Section -->
         <section id="overview" class="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-800 text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
-            <div class="max-w-3xl relative z-10 space-y-4">
-                <div class="inline-flex items-center gap-2 bg-blue-500/30 backdrop-blur-md border border-blue-300/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="inline-flex items-center gap-2 bg-blue-500/30 backdrop-blur-md border border-blue-300/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full w-fit">
                     <span>지역 밀착형 상생 금융 특화 상품</span>
                 </div>
+
+                <a href="./cal.html" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-mg-navy hover:bg-mg-accent hover:text-slate-900 px-4 py-2 text-xs sm:text-sm font-bold shadow-lg transition duration-200 transform hover:-translate-y-0.5 w-fit">
+                    <svg class="w-4 h-4 text-mg-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                    대출 상환 계산기 바로가기 →
+                </a>
+            </div>
+
+            <div class="max-w-3xl relative z-10 space-y-4">
                 <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
                     MG 상생 호프드림 대출
                 </h1>
@@ -91,7 +96,6 @@ Visualizations Justification:
                 </p>
             </div>
 
-            <!-- Key Metrics Grid -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-8 border-t border-blue-700/50">
                 <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10">
                     <p class="text-blue-200 text-xs font-medium">최대 대출 한도</p>
@@ -116,7 +120,6 @@ Visualizations Justification:
             </div>
         </section>
 
-        <!-- Section 1: Background & Need -->
         <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
             <div class="border-l-4 border-blue-600 pl-4">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900">1. 상품 기획 배경 및 필요성</h2>
@@ -152,7 +155,6 @@ Visualizations Justification:
             </div>
         </section>
 
-        <!-- Section 2: Target & Eligibility -->
         <section id="target" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
             <div class="border-l-4 border-blue-600 pl-4">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900">2. 타깃 고객층 및 세부 지원 자격</h2>
@@ -164,7 +166,6 @@ Visualizations Justification:
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Requirements Card -->
                 <div class="border border-slate-200 rounded-xl p-5 bg-gradient-to-br from-slate-50 to-blue-50/30">
                     <h3 class="text-base font-bold text-blue-900 mb-4 flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-blue-600"></span>
@@ -186,7 +187,6 @@ Visualizations Justification:
                     </ul>
                 </div>
 
-                <!-- Preferential Conditions Card -->
                 <div class="border border-slate-200 rounded-xl p-5 bg-gradient-to-br from-slate-50 to-teal-50/30">
                     <h3 class="text-base font-bold text-teal-900 mb-4 flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-teal-600"></span>
@@ -210,7 +210,6 @@ Visualizations Justification:
             </div>
         </section>
 
-        <!-- Section 3: Product Specs & Interest Discount (Chart Section) -->
         <section id="specs" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-8">
             <div class="border-l-4 border-blue-600 pl-4">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900">3. 상품 주요 스펙 및 금리 우대 구조</h2>
@@ -221,10 +220,7 @@ Visualizations Justification:
                 차주의 실질 금융비용 부담을 대폭 경감하기 위해 상생 우대(1.0%p), 거래실적 우대(0.6%p), 디지털 채널 우대(0.4%p)를 연계하여 <strong>최대 연 2.0%p의 금리 우대 혜택</strong>을 제공합니다.
             </p>
 
-            <!-- Chart & Context Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                
-                <!-- Chart Container -->
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center justify-center">
                     <h3 class="text-sm font-bold text-slate-700 mb-2 text-center">우대금리 구성 비율 (최대 연 2.0%p)</h3>
                     <div class="chart-container">
@@ -235,7 +231,6 @@ Visualizations Justification:
                     </p>
                 </div>
 
-                <!-- Explanation Context Panel -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-bold text-slate-900">세부 금리 우대 세부 조건</h3>
                     
@@ -273,7 +268,6 @@ Visualizations Justification:
                 </div>
             </div>
 
-            <!-- Repayment Features -->
             <div class="border-t border-slate-200 pt-6">
                 <h3 class="text-base font-bold text-slate-900 mb-4">맞춤형 상환 방식 및 MG더뱅킹 비대면 서비스</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -302,7 +296,6 @@ Visualizations Justification:
             </div>
         </section>
 
-        <!-- Section 4: Risk Management Process -->
         <section id="risk" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
             <div class="border-l-4 border-blue-600 pl-4">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900">4. 리스크 관리 및 건전성 확보 방안</h2>
@@ -313,9 +306,7 @@ Visualizations Justification:
                 저신용 자영업자 유입에 따른 부실 위험을 방지하기 위해 <strong>신용보증재단 90~100% 특례보증 연계</strong>와 실시간 카드 매출 대금 흐름 분석 기반의 <strong>조기경보시스템(EWS)</strong>을 가동합니다.
             </p>
 
-            <!-- Risk Management Process Map (Structured HTML/CSS Cards) -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-                <!-- Step 1 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col justify-between space-y-3 relative">
                     <div>
                         <div class="flex items-center justify-between mb-2">
@@ -332,7 +323,6 @@ Visualizations Justification:
                     </div>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col justify-between space-y-3 relative">
                     <div>
                         <div class="flex items-center justify-between mb-2">
@@ -349,7 +339,6 @@ Visualizations Justification:
                     </div>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col justify-between space-y-3 relative">
                     <div>
                         <div class="flex items-center justify-between mb-2">
@@ -366,7 +355,6 @@ Visualizations Justification:
                     </div>
                 </div>
 
-                <!-- Step 4 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col justify-between space-y-3 relative">
                     <div>
                         <div class="flex items-center justify-between mb-2">
@@ -385,7 +373,6 @@ Visualizations Justification:
             </div>
         </section>
 
-        <!-- Section 5: Expected Impact (Chart Section) -->
         <section id="impact" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-8">
             <div class="border-l-4 border-blue-600 pl-4">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900">5. 종합 기대 효과</h2>
@@ -396,10 +383,7 @@ Visualizations Justification:
                 MG 상생 희망드림 대출 도입을 통해 새마을금고는 저원가성 예금 확보, 자산 포트폴리오 다각화, 비대면 플랫폼 이용자 증가 등 괄목할 만한 정량적 성과를 거둘 것으로 기대됩니다.
             </p>
 
-            <!-- Chart & Impact Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                
-                <!-- Chart Container -->
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center justify-center">
                     <h3 class="text-sm font-bold text-slate-700 mb-2 text-center">주요 목표 성과 지표 (KPIs)</h3>
                     <div class="chart-container">
@@ -410,7 +394,6 @@ Visualizations Justification:
                     </p>
                 </div>
 
-                <!-- Qualitative Impact Bullet Points -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-bold text-slate-900">정성적 기대 효과 및 선순환 구조</h3>
 
@@ -451,7 +434,6 @@ Visualizations Justification:
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
@@ -466,11 +448,9 @@ Visualizations Justification:
         </div>
     </footer>
 
-    <!-- Chart.js Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             
-            // Shared Tooltip Title Callback for Array Multi-line Handling
             const tooltipCallbackConfig = {
                 callbacks: {
                     title: function(tooltipItems) {
@@ -485,10 +465,9 @@ Visualizations Justification:
                 }
             };
 
-            // Chart 1: Interest Rate Discount Breakdown (Doughnut Chart)
+            // Chart 1: Interest Rate Discount Breakdown
             const ctx1 = document.getElementById('interestDiscountChart').getContext('2d');
             
-            // Multi-line Label Wrapping Logic (String > 16 chars wrapped as arrays)
             const labelsChart1 = [
                 ['상생 우대', '(최대 1.0%p)'],
                 ['거래실적 우대', '(최대 0.6%p)'],
@@ -502,9 +481,9 @@ Visualizations Justification:
                     datasets: [{
                         data: [1.0, 0.6, 0.4],
                         backgroundColor: [
-                            '#2563eb', // Blue
-                            '#0d9488', // Teal
-                            '#d97706'  // Amber
+                            '#2563eb',
+                            '#0d9488',
+                            '#d97706'
                         ],
                         borderWidth: 2,
                         borderColor: '#ffffff'
@@ -530,7 +509,7 @@ Visualizations Justification:
                 }
             });
 
-            // Chart 2: Expected Strategic Impact Metrics (Bar Chart)
+            // Chart 2: Expected Strategic Impact Metrics
             const ctx2 = document.getElementById('impactChart').getContext('2d');
 
             const labelsChart2 = [
@@ -548,10 +527,10 @@ Visualizations Justification:
                         label: '목표 지표 값',
                         data: [300, 15, 90, 120],
                         backgroundColor: [
-                            '#1d4ed8', // Darker Blue
-                            '#0f766e', // Dark Teal
-                            '#059669', // Emerald
-                            '#b45309'  // Dark Amber
+                            '#1d4ed8',
+                            '#0f766e',
+                            '#059669',
+                            '#b45309'
                         ],
                         borderRadius: 8
                     }]
